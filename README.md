@@ -33,6 +33,26 @@ run slither (after slither is installed)
 ```bash
 slither src/StringContract.sol --print human-summary
 ```
+deploy a contract
+```bash
+forge create <deployedName> --rpc-url=<RPC_URL> --private-key=<PRIVATE_KEY> --constructor-args <args...> --verify
+
+i.e.:
+
+forge create StringNFT --rpc-url=$RPC_URL --private-key=$PRIVATE_KEY --constructor-args StringTestNFT STR721t https://stringtesturi.xyz/nft/ --verify
+```
+verify a contract deployed to fuji (autoverify not supported for fuji)
+```bash
+forge verify-contract --chain-id <chainID> --num-of-optimizations <optimizations> -- constructor-args $(cast abi encode "constructor(<types...>)" <args...>) --compiler-version v0.<Major>.<minor>+commit.<8HexDigitsOfCommit> <contract addr> <contract file>:<contract name> <snowtrace api key>
+
+i.e.:
+
+forge verify-contract --chain-id 43113 --num-of-optimizations 1000 --constructor-args $(cast abi-encode "constructor(string,string,string)" "StringTestNFT" "STR721t" "https://stringtesturi.xyz/nft/") --compiler-version v0.8.13+commit.abaa5c0e 0x861af9ed4fee884e5c49e9ce444359fe3631418b src/StringNFT.sol:StringNFT $SNOWTRACE_API_KEY
+```
+Create temporary environment variables for passing into console commands
+```bash
+export ETHERSCAN_API_KEY=HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA
+```
 
 ## Manual Setup
 If you would prefer to set up project dependencies manually, they should be done in this order:
