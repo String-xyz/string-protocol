@@ -23,7 +23,8 @@ remappings = [
   "@solmate=lib/solmate/src/",
   "@ds-test/=lib/forge-std/lib/ds-test/src/",
   "@forge-std/=lib/forge-std/src/",
-  "@weird-erc20/=lib/solmate/lib/weird-erc20/src/"
+  "@weird-erc20/=lib/solmate/lib/weird-erc20/src/",
+  "@openzeppelin/=lib/openzeppelin-contracts/contracts/"
 ]
 
 

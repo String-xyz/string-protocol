@@ -15,10 +15,6 @@ Test smart contracts using Forge and Slither
 ```bash
 scripts/test.sh
 ```
-Update all libraries
-```bash
-scripts/updateLibs.sh
-```
 
 ## Useful Commands
 build project
@@ -52,6 +48,10 @@ forge verify-contract --chain-id 43113 --num-of-optimizations 1000 --constructor
 Create temporary environment variables for passing into console commands
 ```bash
 export ETHERSCAN_API_KEY=HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA
+```
+Update all libraries
+```bash
+forge update
 ```
 
 ## Manual Setup
