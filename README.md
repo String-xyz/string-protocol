@@ -53,6 +53,10 @@ Update all libraries
 ```bash
 forge update
 ```
+Run a custom solidity script (i.e. Withdraw.sol)
+```bash
+forge script Withdraw --rpc-url $FUJI_RPC_URL --private-key $PRIVATE_KEY --broadcast -vvv
+```
 
 ## Manual Setup
 If you would prefer to set up project dependencies manually, they should be done in this order:
