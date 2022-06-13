@@ -37,7 +37,7 @@ i.e.:
 
 forge create StringNFT --rpc-url=$RPC_URL --private-key=$PRIVATE_KEY --constructor-args StringTestNFT STR721t https://stringtesturi.xyz/nft/ --verify
 ```
-verify a contract deployed to fuji (autoverify not supported for fuji)
+verify a contract deployed to fuji (instead of using a script for whatever reason)
 ```bash
 forge verify-contract --chain-id <chainID> --num-of-optimizations <optimizations> -- constructor-args $(cast abi encode "constructor(<types...>)" <args...>) --compiler-version v0.<Major>.<minor>+commit.<8HexDigitsOfCommit> <contract addr> <contract file>:<contract name> <snowtrace api key>
 
@@ -52,6 +52,10 @@ export ETHERSCAN_API_KEY=HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA
 Update all libraries
 ```bash
 forge update
+```
+Run a custom solidity script (i.e. Withdraw.sol)
+```bash
+forge script Withdraw --rpc-url $FUJI_RPC_URL --private-key $PRIVATE_KEY --broadcast -vvv
 ```
 
 ## Manual Setup
