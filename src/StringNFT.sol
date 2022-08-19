@@ -49,9 +49,10 @@ contract StringNFT is ERC721, Ownable {
         if (ownerOf(tokenId) == address(0)) {
             revert NonExistentTokenURI();
         }
+        uint256 mod = (tokenId % 10) + 1;
         return
             bytes(baseURI).length > 0
-                ? string(abi.encodePacked(baseURI, tokenId.toString()))
+                ? string(abi.encodePacked(baseURI, "STR_Logo_", mod.toString(), ".png"))
                 : "";
     }
 
