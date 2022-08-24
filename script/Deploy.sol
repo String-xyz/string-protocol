@@ -15,7 +15,7 @@ contract Deploy is Script {
         vm.startBroadcast();
 
         // Deploy a new NFT contract
-        StringNFT nft = new StringNFT("String_Test_NFT", "STRNFTt", "https://stringtesturi.xyz/nft/");
+        StringNFT nft = new StringNFT("String_Demo_NFT", "STRDEMO", "ipfs://bafybeibtmy26mac47n5pp6srds76h74riqs76erw24p5yvdhmwu7pxlcx4/");
         console2.log("NFT Deployed to: ", address(nft));
 
         // Mint the first one to ourselves
