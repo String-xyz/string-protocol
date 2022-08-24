@@ -1,0 +1,30 @@
+{
+  "transactions": [
+    {
+      "hash": "0xec7727457503c827a8e9d6897041a9fa0cfaebabb4dd7f175efc10eb9302bd2f",
+      "transactionType": "CALL",
+      "contractName": null,
+      "contractAddress": "0xffa8cc8530982a64ef0e3e97554a4581b4cd6314",
+      "function": null,
+      "arguments": null,
+      "transaction": {
+        "type": "0x02",
+        "from": "0x44a4b9e2a69d86ba382a511f845cbf2e31286770",
+        "to": "0xffa8cc8530982a64ef0e3e97554a4581b4cd6314",
+        "gas": "0xa6c2",
+        "value": "0x0",
+        "data": "0x31b3eb9400000000000000000000000044a4b9e2a69d86ba382a511f845cbf2e31286770",
+        "nonce": "0x2",
+        "accessList": []
+      }
+    }
+  ],
+  "receipts": [],
+  "libraries": [],
+  "pending": [
+    "0xec7727457503c827a8e9d6897041a9fa0cfaebabb4dd7f175efc10eb9302bd2f"
+  ],
+  "path": "/Users/auroter/DEV/string/string-protocol/broadcast/Withdraw.sol/80001/run-latest.json",
+  "returns": {},
+  "timestamp": 1661203883
+}

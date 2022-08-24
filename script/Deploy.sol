@@ -9,6 +9,13 @@ import "forge-std/Script.sol";
 // To run this:
 // % source .env
 // % forge script Deploy --rpc-url $FUJI_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $SNOWTRACE_KEY -vvv
+// % forge script Deploy --rpc-url $MUMBAI_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $POLYGONSCAN_KEY -vvv
+// % forge script Deploy --rpc-url $GOERLI_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_KEY -vvv
+
+// If auto-verification fails (on Mumbai for example):
+// % forge verify-contract --chain-id 80001 --num-of-optimizations 1000 --constructor-args $(cast abi-encode "constructor(string,string,string)" "String_Demo_NFT" "STRDEMO" "ipfs://bafybeibtmy26mac47n5pp6srds76h74riqs76erw24p5yvdhmwu7pxlcx4/") --compiler-version v0.8.13+commit.abaa5c0e 0xffa8cc8530982a64ef0e3e97554a4581b4cd6314 src/StringNFT.sol:StringNFT $POLYGONSCAN_KEY
+// Or if it fails on Goerli for some reason:
+// % forge verify-contract --chain-id 5 --num-of-optimizations 1000 --constructor-args $(cast abi-encode "constructor(string,string,string)" "String_Demo_NFT" "STRDEMO" "ipfs://bafybeibtmy26mac47n5pp6srds76h74riqs76erw24p5yvdhmwu7pxlcx4/") --compiler-version v0.8.13+commit.abaa5c0e 0xffa8cc8530982a64ef0e3e97554a4581b4cd6314 src/StringNFT.sol:StringNFT $ETHERSCAN_KEY
 
 contract Deploy is Script {
     function run() external {
