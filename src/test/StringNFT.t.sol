@@ -135,6 +135,19 @@ contract StringContractTest is Test {
         stringNFT.withdrawPayments(payable(address(0xd3ad)));
         vm.stopPrank();
     }
+
+    function testMintReturnsIndices() public {
+        // Mint three NFTs
+        Receiver receiver = new Receiver();
+        stringNFT.mintTo{value: stringNFT.MINT_PRICE()}(address(receiver));
+        stringNFT.mintTo{value: stringNFT.MINT_PRICE()}(address(0xd3ad));
+        stringNFT.mintTo{value: stringNFT.MINT_PRICE()}(address(receiver));
+    
+        uint256[] memory owned = stringNFT.getOwnedIDs(address(receiver));
+        assertEq(owned.length, 2);
+        assertEq(owned[0], 1);
+        assertEq(owned[1], 3);
+    }
 }
 
 contract Receiver is ERC721TokenReceiver {
