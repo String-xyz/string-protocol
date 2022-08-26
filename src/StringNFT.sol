@@ -18,6 +18,7 @@ contract StringNFT is ERC721, Ownable {
     uint256 public currentTokenId;
     uint256 public constant TOTAL_SUPPLY = 10_000;
     uint256 public constant MINT_PRICE = 0.08 ether;
+    mapping(address => uint256[]) private _ownedIds;
 
     constructor(
         string memory _name,
@@ -36,6 +37,8 @@ contract StringNFT is ERC721, Ownable {
             revert MaxSupply();
         }
         _safeMint(recipient, newTokenId);
+        uint256[] storage collection = _ownedIds[recipient];
+        collection.push(newTokenId);
         return newTokenId;
     }
 
@@ -62,5 +65,9 @@ contract StringNFT is ERC721, Ownable {
         if (!transferTx) {
             revert WithdrawTransfer();
         }
+    }
+
+    function getOwnedIDs(address owner) external view returns (uint256[] memory) {
+        return _ownedIds[owner];
     }
 }
