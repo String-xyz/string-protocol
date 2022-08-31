@@ -16,11 +16,11 @@ contract Withdraw is Script {
         address contractAddr; // Address of StringNFT
         // Detect network
         if (block.chainid == 43113) { // Fuji
-            contractAddr = 0x861aF9Ed4fEe884e5c49E9CE444359fe3631418B;
+            contractAddr = 0x41e11fF9F71f51800F67cb913eA6Bc59d3F126Aa;
         } else if (block.chainid == 80001) { // Mumbai
-            contractAddr = 0xFFa8cc8530982A64Ef0E3e97554A4581b4Cd6314;
+            contractAddr = 0x41E60F5118785755b6337c94F301017c42BaAA9C;
         } else if (block.chainid == 5) { // Goerli
-            contractAddr = 0xFFa8cc8530982A64Ef0E3e97554A4581b4Cd6314;
+            contractAddr = 0x7535f48fC7A44531e9Ef0593815140E6bdF9EF65;
         }
 
         address payable owner = payable(msg.sender); // Our address, recipient of withdrawn funds
