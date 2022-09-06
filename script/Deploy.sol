@@ -25,8 +25,8 @@ contract Deploy is Script {
         StringNFT nft = new StringNFT("String_Demo_NFT", "STRDEMO", "ipfs://bafybeibtmy26mac47n5pp6srds76h74riqs76erw24p5yvdhmwu7pxlcx4/");
         console2.log("NFT Deployed to: ", address(nft));
 
-        // Mint the first one to ourselves
-        nft.mintTo{value: 0.08 ether}(msg.sender);
+        // Transfer ownership to demo hotwallet
+        nft.transferOwnership(0x2412670a7F38cbCF117Da3b220cd6D2E32B5c3f1);
 
         // Do anything else
 
