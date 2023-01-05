@@ -17,7 +17,7 @@ contract StringNFT is ERC721, Ownable {
     string public baseURI;
     uint256 public currentTokenId;
     uint256 public constant TOTAL_SUPPLY = 10_000;
-    uint256 public constant MINT_PRICE = 0.08 ether;
+    uint256 public constant MINT_PRICE = 0 wei;
     mapping(address => uint256[]) private _ownedIds;
 
     constructor(
@@ -55,7 +55,7 @@ contract StringNFT is ERC721, Ownable {
         uint256 mod = (tokenId % 10) + 1;
         return
             bytes(baseURI).length > 0
-                ? string(abi.encodePacked(baseURI, "STR_Logo_", mod.toString(), ".png"))
+                ? string(abi.encodePacked(baseURI, "Demo_Character_", mod.toString(), ".png"))
                 : "";
     }
 
