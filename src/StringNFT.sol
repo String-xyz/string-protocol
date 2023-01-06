@@ -16,8 +16,8 @@ contract StringNFT is ERC721, Ownable {
     using Strings for uint256;
     string public baseURI;
     uint256 public currentTokenId;
-    uint256 public constant TOTAL_SUPPLY = 10_000;
-    uint256 public constant MINT_PRICE = 0 wei;
+    uint256 public constant TOTAL_SUPPLY = 100_000;
+    uint256 public constant MINT_PRICE = 0.08 ether;
     mapping(address => uint256[]) private _ownedIds;
 
     constructor(

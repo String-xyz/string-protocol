@@ -25,11 +25,17 @@ contract Deploy is Script {
         vm.startBroadcast();
 
         // Deploy a new NFT contract
-        StringNFT nft = new StringNFT("Ex Populus Demo NFT", "ExPopDemo", "ipfs://bafybeieqi56p6vlxofj6wkoort2m5r72ajhtikpzo53wnyze5isvn34fze/");
+        StringNFT nft = new StringNFT("String Demo NFT", "STRDEMO", "ipfs://bafybeieqi56p6vlxofj6wkoort2m5r72ajhtikpzo53wnyze5isvn34fze/");
+        
+        // StringNFT nft = new StringNFT("Ex Populus Demo NFT", "ExPopDemo", "ipfs://bafybeieqi56p6vlxofj6wkoort2m5r72ajhtikpzo53wnyze5isvn34fze/");
+        
         console2.log("NFT Deployed to: ", address(nft));
 
-        // Transfer ownership to demo hotwallet
+        // Transfer ownership to production hotwallet
         // nft.transferOwnership(0xDceA542e96DE24e9f89BF9635ebBe4a0CaCE30aa);
+
+        // Transfer ownership to dev hotwallet
+        nft.transferOwnership(0xb4D168E584dA81B6712412472F163bcf0Af5171C);
 
         // Do anything else
 
