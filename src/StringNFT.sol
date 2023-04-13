@@ -42,6 +42,24 @@ contract StringNFT is ERC721, Ownable {
         return newTokenId;
     }
 
+    function mintTo(address[] memory recipients) public payable returns (uint256[] memory) {
+        if (msg.value != MINT_PRICE * recipients.length) {
+            revert MintPriceNotPaid();
+        }
+        uint256[] memory tokenIds = new uint256[](recipients.length);
+        for (uint256 i = 0; i < recipients.length; i++) {
+            uint256 newTokenId = ++currentTokenId;
+            if (newTokenId > TOTAL_SUPPLY) {
+                revert MaxSupply();
+            }
+            _safeMint(recipients[i], newTokenId);
+            uint256[] storage collection = _ownedIds[recipients[i]];
+            collection.push(newTokenId);
+            tokenIds[i] = newTokenId;
+        }
+        return tokenIds;
+    }
+
     function tokenURI(uint256 tokenId)
         public
         view

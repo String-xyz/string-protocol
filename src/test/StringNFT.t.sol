@@ -37,7 +37,7 @@ contract StringContractTest is Test {
         // Cast slot to raw bytes32
         bytes32 loc = bytes32(slot);
         // Encode data we wish to write
-        bytes32 mockedCurrentTokenId = bytes32(abi.encode(10000));
+        bytes32 mockedCurrentTokenId = bytes32(abi.encode(100000));
         // Write the data to the string NFT in the desired location
         vm.store(address(stringNFT), loc, mockedCurrentTokenId);
         // Try to exceed max value
@@ -147,6 +147,20 @@ contract StringContractTest is Test {
         assertEq(owned.length, 2);
         assertEq(owned[0], 1);
         assertEq(owned[1], 3);
+    }
+
+    function testMintReturnsMultipleIndices() public {
+        // Mint three NFTs
+        Receiver receiver = new Receiver();
+        address[] memory addresses = new address[](3);
+        addresses[0] = address(receiver);
+        addresses[1] = address(0xd3ad);
+        addresses[2] = address(receiver);
+        uint256[] memory minted = stringNFT.mintTo{value: stringNFT.MINT_PRICE() * 3}(addresses);
+
+        assertEq(minted[0], 1);
+        assertEq(minted[1], 2);
+        assertEq(minted[2], 3);
     }
 }
 
